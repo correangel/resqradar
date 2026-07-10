@@ -23,7 +23,7 @@ body {
   background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
-  background-image: linear-gradient(rgba(10, 15, 20, 0.20), rgba(10, 15, 20, 0.40)), url('../img/hero_bg.png');
+  background-image: linear-gradient(rgba(10, 15, 20, 0.20), rgba(10, 15, 20, 0.40)), url('../img/banner_ai.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
