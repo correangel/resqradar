@@ -1,65 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitalFi - Radar de Rescate con IA</title>
-    <meta name="description" content="VitalFi detecta signos vitales y movimiento humano a través de muros utilizando IA y señales Wi-Fi. Diseñado para equipos tácticos y de primera respuesta.">
+    <title>ResQRadar Táctico - Detección de Vida y Enjambre P2P</title>
+    <meta name="description"
+        content="ResQRadar detecta signos vitales a través de escombros con señales Wi-Fi y establece redes de comunicación Enjambre P2P 100% offline para equipos de rescate.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
             <div class="logo">
-                <div class="logo-dot"></div>
-                VitalFi
+                <img src="img/logo.png" alt="ResQRadar Logo">
+                <span>ResQRadar</span>
             </div>
             <nav>
-                <a href="privacy.html">Privacidad</a>
-                <a href="terms.html">Términos</a>
+                <a href="privacy.html" class="nav-link">Privacidad</a>
+                <a href="terms.html" class="nav-link">Términos</a>
             </nav>
         </header>
 
         <section class="hero">
-            <h1>Radar Táctico de Rescate</h1>
-            <p>Transforma tu dispositivo en una herramienta de misión crítica. Detecta vida y signos vitales a través de muros usando señales Wi-Fi e Inteligencia Artificial Edge.</p>
-            
-            <div class="glass-panel" style="max-width: 600px; margin: 40px auto; padding: 30px;">
-                <h3 style="margin-bottom: 15px; color: var(--accent-green);">Próximamente en Tiendas</h3>
-                <p style="font-size: 0.9rem;">Estamos finalizando el despliegue en las principales tiendas de aplicaciones.</p>
-                <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png" alt="Disponible en Google Play" style="height: 60px; opacity: 0.5; cursor: not-allowed; border-radius: 8px;">
-                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Consíguelo en el App Store" style="height: 42px; margin-top: 9px; opacity: 0.5; cursor: not-allowed;">
+            <h1 class="hero-title">Radar Táctico de <span class="text-gradient">Rescate</span></h1>
+            <p class="hero-subtitle">Transforma las ondas Wi-Fi de tu celular en un radar de penetración. Nuestra Inteligencia Artificial analiza el rebote de la señal para detectar la respiración y latidos a través de escombros, mientras el Enjambre P2P mantiene a tu equipo conectado 100% offline.</p>
+
+            <div class="stores-panel">
+                <h3 class="stores-title">Despliegue Global Inminente</h3>
+                <p class="stores-desc">El sistema de respuesta a desastres más avanzado de Moovitya C.A.</p>
+                <div class="stores-badges">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png"
+                        alt="Disponible en Google Play" class="store-badge google-badge">
                 </div>
             </div>
         </section>
 
         <section class="features">
             <div class="feature-card">
-                <div class="feature-icon">👁️</div>
-                <h3>Detección sin visión</h3>
-                <p>Identifica la presencia humana a través de escombros y muros aprovechando la física de radiofrecuencia (CSI/RSSI) sin necesidad de cámaras ni luz.</p>
+                <div class="feature-icon icon-vital">📡</div>
+                <h3>Radar Penetrante</h3>
+                <p>Detecta micro-movimientos, frecuencia respiratoria y latidos cardíacos humanos a través de muros y
+                    escombros utilizando la alteración de señales Wi-Fi (CSI/RSSI) e Inteligencia Artificial Edge.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">❤️</div>
-                <h3>Signos Vitales</h3>
-                <p>Los algoritmos de filtrado avanzado estiman la frecuencia respiratoria y los latidos cardíacos analizando los micro-movimientos en el rebote de la señal.</p>
+                <div class="feature-icon icon-ai">🕸️</div>
+                <h3>Enjambre P2P Global</h3>
+                <p>Cuando colapsa la infraestructura celular, el modo Enjambre crea una red de malla descentralizada
+                    entre teléfonos de rescatistas, permitiendo chat seguro y sincronización táctica 100% offline.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>IA 100% Offline</h3>
-                <p>Equipado con un motor TensorFlow Lite que procesa todo localmente. En zonas de desastre, no necesitas conexión a internet para salvar vidas.</p>
+                <div class="feature-icon icon-ai">🗺️</div>
+                <h3>Mapa de Triaje 3D</h3>
+                <p>Mapeo GPS táctico que clasifica automáticamente a las víctimas localizadas. Distingue visualmente
+                    entre pacientes en estado crítico (Rojo) y estables (Verde) en tiempo real.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-vital">📱</div>
+                <h3>Portal Cautivo de Emergencia</h3>
+                <p>Emite un punto de acceso SOS que redirige automáticamente a cualquier teléfono cercano de una víctima
+                    atrapada a un portal web de rescate, sin que ellos necesiten tener la app instalada.</p>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2 class="section-title">¿Cómo Detectamos Vida a Través de los Escombros?</h2>
+            <p class="section-subtitle">La magia detrás de ResQRadar no es ficción, es física aplicada conocida como
+                <strong>Wi-Fi Sensing</strong> (Detección por Radiofrecuencia) procesada por Inteligencia Artificial en
+                el borde.</p>
+
+            <div class="science-steps">
+                <div class="science-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Emisión y Rebote de Señal</h3>
+                        <p>El teléfono emite constantemente ondas de radio (señales Wi-Fi) al entorno. Estas ondas
+                            atraviesan materiales no metálicos como concreto, madera y escombros, rebotando en los
+                            objetos y cuerpos presentes en el área.</p>
+                    </div>
+                </div>
+
+                <div class="science-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Análisis de Micro-Movimientos (CSI/RSSI)</h3>
+                        <p>Cuando un cuerpo humano respira o su corazón late, su pecho se mueve milímetros. Este
+                            diminuto movimiento altera la forma en la que las ondas de radio regresan al dispositivo
+                            receptor. Nuestros algoritmos capturan estas minúsculas fluctuaciones en el espectro (RSSI y
+                            CSI).</p>
+                    </div>
+                </div>
+
+                <div class="science-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Filtrado con IA (Machine Learning)</h3>
+                        <p>El ruido del ambiente es masivo. Aquí entra nuestro motor de Inteligencia Artificial
+                            (TensorFlow Lite), que está entrenado para ignorar el movimiento de objetos inanimados o
+                            viento, y aislar exclusivamente los patrones de frecuencia que corresponden a la respiración
+                            (RPM) y el ritmo cardíaco (BPM) humano.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 VitalFi Rescue Systems. Todos los derechos reservados.</p>
-            <div style="margin-top: 15px;">
-                <a href="privacy.html">Política de Privacidad</a> | 
-                <a href="terms.html">Términos de Servicio</a>
+            <div class="footer-content">
+                <p>&copy; 2026 Moovitya C.A. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Política de Privacidad</a>
+                    <span class="separator">|</span>
+                    <a href="terms.html">Términos de Servicio</a>
+                </div>
+                <p class="disclaimer">Desarrollado para misiones críticas. Esta aplicación es una herramienta de
+                    asistencia táctica y no reemplaza protocolos de las agencias de primera respuesta.</p>
             </div>
-            <p style="margin-top: 20px; font-size: 0.8rem; color: #475569;">Esta aplicación es una herramienta de asistencia táctica y no reemplaza el equipo médico profesional o los protocolos oficiales de rescate.</p>
         </footer>
     </div>
 </body>
+
 </html>
