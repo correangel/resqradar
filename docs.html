@@ -12,6 +12,36 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .cta-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .btn-giant-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            animation: pulse-cta 2s infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-giant-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
+        }
+        @keyframes pulse-cta {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -33,6 +63,10 @@
         <section class="legal-content">
         <div class="center" style="margin-bottom: 40px; margin-top: 20px;">
             <img src="img/banner_ai.png" alt="ResQRadar Banner" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px;">
+        </div>
+
+        <div class="cta-container">
+            <a href="https://correangel.github.io/resqradar/app-release.apk" class="btn-giant-cta" download>🚀 DESCARGAR APK DE RESCATE (v2.4.1)</a>
         </div>
 
         <h2>🚀 1. Resumen Ejecutivo y Propósito</h2>
