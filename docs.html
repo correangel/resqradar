@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Oficial - ResQRadar</title>
+    <meta name="description" content="Documentación Oficial de la aplicación ResQRadar.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logo">
+                    <img src="img/logo.png" alt="ResQRadar Logo">
+                    <span>ResQRadar</span>
+                </div>
+            </a>
+            <nav>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="docs.html" class="nav-link">Documentación</a>
+                <a href="privacy.html" class="nav-link">Privacidad</a>
+                <a href="terms.html" class="nav-link">Términos</a>
+            </nav>
+        </header>
+
+        <section class="legal-content">
+        <div class="center" style="margin-bottom: 40px; margin-top: 20px;">
+            <img src="img/banner_ai.png" alt="ResQRadar Banner" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px;">
+        </div>
+
+        <h2>🚀 1. Resumen Ejecutivo y Propósito</h2>
+        <p><strong>ResQRadar</strong> es una plataforma de software y hardware de nivel profesional e industrial diseñada exclusivamente para <strong>operaciones de búsqueda y rescate (SAR) civil y protección civil</strong>.</p>
+        <p>El sistema utiliza el rebote y distorsión de las ondas de radiofrecuencia (CSI) de redes Wi-Fi comunes para extraer micro-movimientos. Esto permite a los rescatistas <strong>detectar latidos cardíacos y frecuencias respiratorias</strong> de personas atrapadas bajo metros de escombros, tierra o concreto, sin necesidad de que la víctima lleve ningún sensor físico ni dispositivo electrónico encendido.</p>
+
+        <hr>
+
+        <h2>🗓️ 2. Origen y Línea de Tiempo del Proyecto</h2>
+        <p>El desarrollo del núcleo base comenzó oficialmente el <strong>1 de Julio de 2026</strong>. Desde su concepción como "VitalFi", el proyecto ha evolucionado aceleradamente hacia un ecosistema paramédico y avanzado multiplataforma.</p>
+
+        <hr>
+
+        <h2>🧠 3. Arquitectura y Módulos Principales (¿Para qué se usa cada cosa?)</h2>
+        <p>A continuación se detalla la ingeniería detrás de cada componente clave y su propósito en una zona de desastre:</p>
+
+        <h3>3.1. Motor de Extracción Biométrica (Capa Kotlin / DSP)</h3>
+        <ul>
+            <li><strong>¿Para qué sirve?</strong> Es el "cerebro" matemático del radar. Analiza miles de paquetes Wi-Fi por segundo.</li>
+            <li><strong>¿Cómo funciona?</strong> Extrae la Información del Estado del Canal (CSI) y pasa las señales por <strong>Filtros Pasabanda (0.1 Hz a 0.7 Hz)</strong> para aislar únicamente las frecuencias biológicas humanas. Posteriormente, aplica la <strong>Transformada Rápida de Fourier (FFT)</strong> y un <strong>Filtro Hampel</strong> para eliminar ruidos y entregar con precisión los Latidos por Minuto (BPM) y Respiraciones por Minuto (RPM).</li>
+        </ul>
+
+        <h3>3.2. Fusión de Sensores Avanzada (Acelerómetro, Giroscopio y Brújula)</h3>
+        <ul>
+            <li><strong>¿Para qué sirve?</strong> Evita falsos positivos y ancla las detecciones al terreno real.</li>
+            <li><strong>¿Cómo funciona?</strong> Si el rescatista tiembla o camina, el acelerómetro detecta ese movimiento y lo cancela matemáticamente de las ondas Wi-Fi para no confundirlo con el latido de una víctima. La brújula (Magnetómetro) asegura que el radar siempre apunte al Norte magnético real, estabilizando la visualización en 360 grados.</li>
+        </ul>
+
+        <h3>3.3. Rastreador Espacial Multi-Víctimas (MultiVictimTracker)</h3>
+        <ul>
+            <li><strong>¿Para qué sirve?</strong> Permite detectar a múltiples personas en diferentes direcciones simultáneamente.</li>
+            <li><strong>¿Cómo funciona?</strong> A medida que el rescatista gira el dispositivo, el software segmenta el espacio en "Bins" o ángulos espaciales (Azimut). Si detecta señales de vida en el norte y otras en el este, crea <strong>Micro-Tarjetas Inteligentes</strong> separadas para cada víctima, con sus respectivos signos vitales, evitando que las señales se superpongan.</li>
+        </ul>
+
+        <h3>3.4. Modo Enjambre (Red Mesh P2P)</h3>
+        <ul>
+            <li><strong>¿Para qué sirve?</strong> Comunicación y coordinación entre decenas de rescatistas cuando no hay internet, red celular ni antenas satelitales operativas.</li>
+            <li><strong>¿Cómo funciona?</strong> Utiliza la tecnología <em>Nearby Connections</em> (Bluetooth LE y Wi-Fi Direct) para interconectar los teléfonos de los rescatistas en un rango de 100 metros. Permite compartir telemetría de radar y enviar <strong>Mensajes de Chat Offline</strong>, manteniendo una memoria de la sesión compartida con IDs inmutables para cada operador.</li>
+        </ul>
+
+        <h3>3.5. Portal Cautivo Web de Emergencia</h3>
+        <ul>
+            <li><strong>¿Para qué sirve?</strong> Proveer una línea de vida a las víctimas que aún tienen un celular funcional, pero no tienen señal celular.</li>
+            <li><strong>¿Cómo funciona?</strong> El dispositivo ResQRadar emite una red Wi-Fi de rescate (<code>ResQRadar-Emergency</code>). Cuando un civil se conecta, el sistema levanta un servidor HTTP local (puerto 8080) que secuestra su navegador y le muestra automáticamente una página web para que escriba un mensaje de S.O.S. Además, captura inmediatamente su <strong>Dirección IP</strong> para triangular su ubicación física.</li>
+        </ul>
+
+        <h3>3.6. Mapa Offline y Base de Datos (SQLite)</h3>
+        <ul>
+            <li><strong>¿Para qué sirve?</strong> Visualización geográfica y auditoría forense posterior al rescate.</li>
+            <li><strong>¿Cómo funciona?</strong> Descarga y guarda en caché mosaicos de <strong>OpenStreetMap</strong> mediante una bóveda Hive. Cruza el GPS del rescatista con los vectores del radar para pintar a las víctimas sobre el terreno con un <strong>código de color médico</strong> (Verde = Estable, Rojo = Crítico). Al apagar el escáner, todo el historial médico se encripta en JSON en la base de datos local SQLite para su posterior exportación a <strong>KML</strong> (Google Earth) o <strong>PDF</strong>.</li>
+        </ul>
+
+        <h3>3.7. Retroalimentación Háptica y Visión Nocturna</h3>
+        <ul>
+            <li><strong>¿Para qué sirve?</strong> Operar en ambientes de estrés extremo (polvo, humo, ruido ensordecedor y oscuridad).</li>
+            <li><strong>¿Cómo funciona?</strong> Toda la interfaz es un "Modo Oscuro" de alto contraste (salvando batería y protegiendo los ojos). Además, reemplaza los típicos "pitidos" de alerta por un motor de vibración asíncrona (<code>HapticFeedback.heavyImpact</code>), permitiendo al rescatista "sentir" el latido de la víctima físicamente en la palma de su mano cuando el entorno es ruidoso.</li>
+        </ul>
+
+        <div class="center" style="margin: 40px 0;">
+            <img src="img/feature_graphic.png" alt="ResQRadar Interfaz Gráfica" style="width: 80%; border: 2px solid #374151; border-radius: 8px;">
+        </div>
+
+        <hr>
+
+        <h2>📜 4. Historial Completo de Evolución (Changelog)</h2>
+
+        <h3>[Versión 2.3.0] - Despliegue Global Multilingüe (10 y 11 de Julio de 2026)</h3>
+        <ul>
+            <li><strong>Traducción Universal Dinámica:</strong> Inyección del sistema <code>AppLocalizations</code> permitiendo que la interfaz, los botones y las alertas críticas muten instantáneamente a decenas de idiomas (Inglés, Español, Japonés, Árabe, etc.) dependiendo del lenguaje del Sistema Operativo de la brigada de rescate.</li>
+            <li><strong>Rediseño Web:</strong> Creación y publicación de una nueva Landing Page oscura, profesional y optimizada.</li>
+        </ul>
+
+        <h3>[Versión 2.2.0] - Consolidación de Operaciones</h3>
+        <ul>
+            <li><strong>Splash Screen Animada:</strong> Pantalla de carga inicial con difuminación suave y logo central.</li>
+            <li><strong>Persistencia de Chat Offline:</strong> Archivo histórico en JSON para que el Enjambre no pierda los mensajes al suspender el equipo.</li>
+            <li><strong>Alerta Física:</strong> El pitido fue sustituido por el motor háptico de vibración.</li>
+        </ul>
+
+        <h3>[Versión 2.1.0] - Rebranding a ResQRadar</h3>
+        <ul>
+            <li>Transición completa del nombre <em>VitalFi</em> a <strong>ResQRadar</strong>.</li>
+            <li>MultiVictimTracker ahora retiene a las víctimas con un factor matemático de 0.998 para escanear en 360° sin borrar registros.</li>
+        </ul>
+
+        <h3>[Versión 2.0.0] - Nivel Avanzado e Integraciones</h3>
+        <ul>
+            <li>Introducción oficial de exportaciones de parámetros paramédicos en PDF.</li>
+            <li>Despliegue de la base de código P2P (Enjambre).</li>
+        </ul>
+
+        <h3>[Versión 1.5.0] - Smart Throttling</h3>
+        <ul>
+            <li>Integración del acelerador inteligente que baja la antena a 1Hz para salvar batería, subiendo a 50ms al hallar señales sospechosas.</li>
+            <li>Soporte para exportación en formato KML de puntos críticos hacia sistemas GIS.</li>
+        </ul>
+
+        <h3>[Versión 1.4.0] - Network Binding</h3>
+        <ul>
+            <li>Alteraciones nativas en Android para secuestrar la tarjeta de red, forzando la antena Wi-Fi al modo pasivo para atrapar metadatos del ambiente.</li>
+            <li>Restauración total de brújulas hardware.</li>
+        </ul>
+
+        <h3>[Versión 1.3.0] - Mapeo</h3>
+        <ul>
+            <li>Implementación oficial de <code>flutter_map</code> con mapas locales.</li>
+        </ul>
+
+        <h3>[Versión 1.2.0] - Portal Cautivo Nativo</h3>
+        <ul>
+            <li>Lanzamiento de la redirección automática ICMP y captura de IPs en el servidor HTTP (<code>dart:io</code>).</li>
+        </ul>
+
+        <h3>[Versión 1.1.0] - Interfaz Biométrica</h3>
+        <ul>
+            <li>Diseño gráfico de tarjetas pulsantes con indicadores reales de RSSI y estados de vida críticos.</li>
+        </ul>
+
+        <h3>[Versión 1.0.0] - Migración a Flutter</h3>
+        <ul>
+            <li>Arquitectura base, comunicación de Canales (MethodChannels) y algoritmo de Filtro de Hampel FFT.</li>
+        </ul>
+
+        <hr>
+
+        <h2>⚖️ 5. Licencia, Propiedad Intelectual y Créditos</h2>
+        <ul>
+            <li><strong>Software Libre y Creador Original:</strong> La base de código original de detección Wi-Fi que dio origen a este proyecto fue desarrollada por <strong>Carlos Mundaray (Solvitco)</strong> y se encuentra licenciada bajo la <strong>Licencia MIT (Software Libre)</strong>.</li>
+            <li><strong>Obras Derivadas y Propiedad:</strong> Basado en los términos de dicha licencia, <strong>Moovitya C.A.</strong> ha creado esta versión mejorada e iterativa denominada <strong>ResQRadar</strong>. Todo el código nuevo, el diseño gráfico, el modo Enjambre P2P, el Portal Cautivo de Emergencia y las optimizaciones de algoritmos de IA constituyen obras derivadas y son propiedad intelectual de <strong>Moovitya C.A.</strong></li>
+            <li><strong>Independencia Tecnológica:</strong> Plataforma desarrollada sin requerir suscripciones a nubes corporativas o APIs de terceros, garantizando su funcionamiento offline en zonas cero de desastres naturales.</li>
+        </ul>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 Moovitya C.A. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <span class="separator">|</span>
+                    <a href="privacy.html">Política de Privacidad</a>
+                    <span class="separator">|</span>
+                    <a href="terms.html">Términos de Servicio</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
